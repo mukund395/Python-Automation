@@ -6,7 +6,7 @@ class sll:
     def __init__(self,start=None):
         self.start = start
     def is_empty(self):
-        if self.start ==None
+        if self.start ==None:
             return True
         return False
     def insert_at_start(self,data):
@@ -26,10 +26,30 @@ class sll:
         while temp is not None:
             if temp.item ==data:
                 return temp
-
             temp = temp.next
         return None
-    def insert_after(self,data,index_data):
-        k =self.search(index_data)
+    def insert_after(self,data,temp):
+        k =self.search(temp)
         if k is not None:
-print("dfjg")
+            n = Node(data,k.next)
+            k.next = n
+
+    def print_list(self):
+        temp = self.start
+        while temp is not None:
+            print(temp.item)
+            temp = temp.next
+    def delete_first(self):
+        if self.start:
+            self.start = self.start.next
+
+
+my_list = sll()
+
+my_list.insert_at_start(20)
+my_list.insert_at_last(30)
+my_list.insert_at_start(400)
+my_list.insert_at_start(500)
+my_list.insert_after(50,30)
+my_list.delete_first()
+my_list.print_list()
